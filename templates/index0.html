@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Cars Price Predictor</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="{{ url_for('static',filename='images/icons/car_icon.png') }}" />
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='vendor/bootstrap/css/bootstrap.min.css') }}" >
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='vendor/animate/animate.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='vendor/css-hamburgers/hamburgers.min.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='vendor/animsition/css/animsition.min.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='vendor/select2/select2.min.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='vendor/daterangepicker/daterangepicker.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/util.css') }}">
+	<link rel= "stylesheet" type= "text/css" href="{{ url_for('static',filename='css/main.css') }}">
+<!--===============================================================================================-->
+
+</head>
+<body>
+
+
+	<div class="container-contact100">
+		<div class="wrap-contact100">
+			<form id="form_pred" class="contact100-form validate-form" method="post" action="/api">
+				<span class="contact100-form-title">
+					Laptop Price Prediction
+				</span>
+
+        <div class="wrap-input100 input100-select">
+					<span class="label-input100">Company</span>
+					<div>
+						<select class="selection-2" id="company" name="company">
+              <option value="apple">apple</option>
+              <option value="hp">hp</option>
+              <option value="acer">acer</option>
+              <option value="asus">asus</option>
+              <option value="dell">dell</option>
+              <option value="lenovo">lenovo</option>
+              <option value="chuwi">chuwi</option>
+              <option value="msi">msi</option>
+              <option value="microsoft">microsoft</option>
+              <option value="toshiba">toshiba</option>
+              <option value="huawei">huawei</option>
+              <option value="xiaomi">xiaomi</option>
+              <option value="vero">vero</option>
+              <option value="razer">razer</option>
+              <option value="mediacom">mediacom</option>
+              <option value="samsung">samsung</option>
+              <option value="google">google</option>
+              <option value="fujitsu">fujitsu</option>
+              <option value="lg">lg</option>
+						</select>
+					</div>
+					<span class="focus-input100"></span>
+				</div>
+
+        <div class="wrap-input100 input100-select">
+					<span class="label-input100">Series</span>
+					<div>
+						<select class="selection-2" id="series" name="series">
+              <option value="macbook">macbook</option>
+              <option value="250">250</option>
+              <option value="aspire">aspire</option>
+              <option value="zenbook">zenbook</option>
+              <option value="swift">swift</option>
+              <option value="inspiron">inspiron</option>
+              <option value="ideapad">ideapad</option>
+              <option value="xps">xps</option>
+              <option value="vivobook">vivobook</option>
+              <option value="legion">legion</option>
+              <option value="255">255</option>
+              <option value="15-bs101nv">15-bs101nv</option>
+              <option value="latitude">latitude</option>
+              <option value="probook">probook</option>
+              <option value="lapbook">lapbook</option>
+              <option value="e402wa-ga010t">e402wa-ga010t</option>
+              <option value="17-ak001nv">17-ak001nv</option>
+              <option value="x540ua-dm186">x540ua-dm186</option>
+              <option value="x542uq-go005">x542uq-go005</option>
+              <option value="rog">rog</option>
+              <option value="x751nv-ty001t">x751nv-ty001t</option>
+              <option value="yoga">yoga</option>
+              <option value="15-bs002nv">15-bs002nv</option>
+              <option value="gs73vr">gs73vr</option>
+              <option value="x541ua-dm1897">x541ua-dm1897</option>
+              <option value="vostro">vostro</option>
+              <option value="ux410ua-gv350t">ux410ua-gv350t</option>
+              <option value="stream">stream</option>
+              <option value="v310-15isk">v310-15isk</option>
+              <option value="fx753ve-gc093">fx753ve-gc093</option>
+              <option value="surface">surface</option>
+              <option value="gl72m">gl72m</option>
+              <option value="fx503vd-e4022t">fx503vd-e4022t</option>
+              <option value="pavilion">pavilion</option>
+              <option value="fx503vm-e4007t">fx503vm-e4007t</option>
+              <option value="fx550ik-dm018t">fx550ik-dm018t</option>
+              <option value="spin">spin</option>
+              <option value="x541uv-dm1439t">x541uv-dm1439t</option>
+              <option value="omen">omen</option>
+              <option value="15-bs017nv">15-bs017nv</option>
+              <option value="15-bw000nv">15-bw000nv</option>
+              <option value="envy">envy</option>
+              <option value="ux430uq-gv209r">ux430uq-gv209r</option>
+              <option value="gp62m">gp62m</option>
+              <option value="thinkpad">thinkpad</option>
+              <option value="spectre">spectre</option>
+              <option value="x705uv-bx074t">x705uv-bx074t</option>
+              <option value="gs63vr">gs63vr</option>
+              <option value="e402wa-ga007t">e402wa-ga007t</option>
+              <option value="15-bs078nr">15-bs078nr</option>
+              <option value="v110-15iap">v110-15iap</option>
+              <option value="fx753vd-gc086t">fx753vd-gc086t</option>
+              <option value="satellite">satellite</option>
+              <option value="elitebook">elitebook</option>
+              <option value="x541na">x541na</option>
+              <option value="ge72mvr">ge72mvr</option>
+              <option value="v110-15ikb">v110-15ikb</option>
+              <option value="ge73vr">ge73vr</option>
+              <option value="15-bs103nv">15-bs103nv</option>
+              <option value="x555bp-xx180t">x555bp-xx180t</option>
+              <option value="ge63vr">ge63vr</option>
+              <option value="matebook">matebook</option>
+              <option value="17-bs001nv">17-bs001nv</option>
+              <option value="gt80s">gt80s</option>
+              <option value="v310-15ikb">v310-15ikb</option>
+              <option value="mi">mi</option>
+              <option value="k147">k147</option>
+              <option value="blade">blade</option>
+              <option value="v110-15isk">v110-15isk</option>
+              <option value="precision">precision</option>
+              <option value="15-bs018nq">15-bs018nq</option>
+              <option value="portege">portege</option>
+              <option value="alienware">alienware</option>
+              <option value="k756ux-t4340t">k756ux-t4340t</option>
+              <option value="zbook">zbook</option>
+              <option value="pro">pro</option>
+              <option value="15-rb013nv">15-rb013nv</option>
+              <option value="x555qg-dm242t">x555qg-dm242t</option>
+              <option value="nitro">nitro</option>
+              <option value="f756ux-t4201d">f756ux-t4201d</option>
+              <option value="15-bs015dx">15-bs015dx</option>
+              <option value="x505bp-br019t">x505bp-br019t</option>
+              <option value="15-bw094nd">15-bw094nd</option>
+              <option value="gt73evr">gt73evr</option>
+              <option value="v330-15ikb">v330-15ikb</option>
+              <option value="sp315-51">sp315-51</option>
+              <option value="chromebook">chromebook</option>
+              <option value="fx753vd-gc071t">fx753vd-gc071t</option>
+              <option value="17-bs037cl">17-bs037cl</option>
+              <option value="gl553ve-fy082t">gl553ve-fy082t</option>
+              <option value="es1-523-84k7">es1-523-84k7</option>
+              <option value="travelmate">travelmate</option>
+              <option value="ux510ux-cn269t">ux510ux-cn269t</option>
+              <option value="fx553vd-fy647t">fx553vd-fy647t</option>
+              <option value="gp72mvr">gp72mvr</option>
+              <option value="tecra">tecra</option>
+              <option value="15-ay023na">15-ay023na</option>
+              <option value="15-bw003nv">15-bw003nv</option>
+              <option value="leopard">leopard</option>
+              <option value="15-bw004nv">15-bw004nv</option>
+              <option value="fx753vd-gc461t">fx753vd-gc461t</option>
+              <option value="lenovo">lenovo</option>
+              <option value="15-bs028nv">15-bs028nv</option>
+              <option value="x542uq-dm117">x542uq-dm117</option>
+              <option value="flexbook">flexbook</option>
+              <option value="15-ra044nv">15-ra044nv</option>
+              <option value="pixelbook">pixelbook</option>
+              <option value="gv62">gv62</option>
+              <option value="15-bs024nv">15-bs024nv</option>
+              <option value="17-bs092nd">17-bs092nd</option>
+              <option value="x541na-pd1003y">x541na-pd1003y</option>
+              <option value="15-bs026nv">15-bs026nv</option>
+              <option value="15-bs190od">15-bs190od</option>
+              <option value="fx753ve-gc155t">fx753ve-gc155t</option>
+              <option value="smartbook">smartbook</option>
+              <option value="17-x047na">17-x047na</option>
+              <option value="a541na-go342">a541na-go342</option>
+              <option value="15-bw007nv">15-bw007nv</option>
+              <option value="fx553vd-dm627t">fx553vd-dm627t</option>
+              <option value="lifebook">lifebook</option>
+              <option value="14-am079na">14-am079na</option>
+              <option value="15-cd005nv">15-cd005nv</option>
+              <option value="gt73vr">gt73vr</option>
+              <option value="tp501ua-cj131t">tp501ua-cj131t</option>
+              <option value="notebook">notebook</option>
+              <option value="v320-17isk">v320-17isk</option>
+              <option value="laptop">laptop</option>
+              <option value="fx753vd-gc007t">fx753vd-gc007t</option>
+              <option value="gt62vr">gt62vr</option>
+              <option value="cb5-132t-c9kk">cb5-132t-c9kk</option>
+              <option value="q304ua-bhi5t11">q304ua-bhi5t11</option>
+              <option value="x541na-go414t">x541na-go414t</option>
+              <option value="17-ak091nd">17-ak091nd</option>
+              <option value="extensa">extensa</option>
+              <option value="a715-71g-59dh">a715-71g-59dh</option>
+              <option value="gl62m">gl62m</option>
+              <option value="15-ay047nv">15-ay047nv</option>
+              <option value="gp72vr">gp72vr</option>
+              <option value="15-bs012nv">15-bs012nv</option>
+              <option value="gp62">gp62</option>
+              <option value="gram">gram</option>
+              <option value="gv62m">gv62m</option>
+              <option value="l502na-go052t">l502na-go052t</option>
+              <option value="17-bs000nv">17-bs000nv</option>
+              <option value="17-y002nv">17-y002nv</option>
+              <option value="15-bs011nv">15-bs011nv</option>
+              <option value="17-ak002nv">17-ak002nv</option>
+              <option value="110-15acl">110-15acl</option>
+              <option value="15-bw037na">15-bw037na</option>
+              <option value="predator">predator</option>
+              <option value="15-bw091nd">15-bw091nd</option>
+              <option value="flex">flex</option>
+              <option value="n23">n23</option>
+              <option value="x550vx-xx015d">x550vx-xx015d</option>
+              <option value="15-cb003na">15-cb003na</option>
+              <option value="x751nv-ty001">x751nv-ty001</option>
+              <option value="q524uq-bhi7t15">q524uq-bhi7t15</option>
+              <option value="gs43vr">gs43vr</option>
+              <option value="fx502vm-dm560t">fx502vm-dm560t</option>
+              <option value="k146">k146</option>
+              <option value="r417na-rs01">r417na-rs01</option>
+              <option value="15-ba043na">15-ba043na</option>
+              <option value="n42-20">n42-20</option>
+              <option value="r558ua-dm966t">r558ua-dm966t</option>
+              <option value="k556ur-dm621t">k556ur-dm621t</option>
+              <option value="tmx349-g2-m-50fs">tmx349-g2-m-50fs</option>
+              <option value="x541na-go121">x541na-go121</option>
+              <option value="g701vo-ih74k">g701vo-ih74k</option>
+              <option value="ge72vr">ge72vr</option>
+              <option value="x751sv-ty001t">x751sv-ty001t</option>
+              <option value="insprion">insprion</option>
+              <option value="q534ux-bhi7t19">q534ux-bhi7t19</option>
+              <option value="15-bs053od">15-bs053od</option>
+              <option value="15-bs005nv">15-bs005nv</option>
+              <option value="v142">v142</option>
+              <option value="gt72s">gt72s</option>
+              <option value="noteb">noteb</option>
+              <option value="gt72vr">gt72vr</option>
+              <option value="gs70">gs70</option>
+              <option value="g752vy-gc162t">g752vy-gc162t</option>
+              <option value="ge72">ge72</option>
+              <option value="15-bw011nv">15-bw011nv</option>
+              <option value="v131">v131</option>
+              <option value="15-bs078cl">15-bs078cl</option>
+              <option value="l403na-ga013ts">l403na-ga013ts</option>
+              <option value="15-ba015wm">15-ba015wm</option>
+              <option value="b51-80">b51-80</option>
+              <option value="15-bw002nv">15-bw002nv</option>
+              <option value="gp72m">gp72m</option>
+              <option value="gs40">gs40</option>
+              <option value="320-15isk">320-15isk</option>
+              <option value="pl60">pl60</option>
+              <option value="x553sa-xx021t">x553sa-xx021t</option>
+              <option value="ux410ua-gv097t">ux410ua-gv097t</option>
+              <option value="gs60">gs60</option>
+              <option value="fx502vm-dm105t">fx502vm-dm105t</option>
+              <option value="15-bs025nv">15-bs025nv</option>
+              <option value="fx502vm-as73">fx502vm-as73</option>
+              <option value="c740-c9qx">c740-c9qx</option>
+              <option value="e5">e5</option>
+              <option value="sp714-51">sp714-51</option>
+              <option value="gp62mvr">gp62mvr</option>
+              <option value="15-bw009nv">15-bw009nv</option>
+              <option value="x540sa-rbpdn09">x540sa-rbpdn09</option>
+              <option value="15-bs023nv">15-bs023nv</option>
+              <option value="gl62">gl62</option>
+              <option value="v510-15ikb">v510-15ikb</option>
+              <option value="x541na-go020t">x541na-go020t</option>
+              <option value="ge62">ge62</option>
+              <option value="x556uj-xo044t">x556uj-xo044t</option>
+              <option value="15-ac110nv">15-ac110nv</option>
+              <option value="x553sa-xx031t">x553sa-xx031t</option>
+						</select>
+					</div>
+					<span class="focus-input100"></span>
+				</div>
+
+        <div class="wrap-input100 input100-select">
+					<span class="label-input100">Type</span>
+					<div>
+						<select class="selection-2" id="type" name="type">
+              <option value="ultrabook">ultrabook</option>
+              <option value="notebook">notebook</option>
+              <option value="netbook">netbook</option>
+              <option value="gaming">gaming</option>
+              <option value="2 in 1 convertible">2 in 1 convertible</option>
+              <option value="workstation">workstation</option>
+						</select>
+					</div>
+					<span class="focus-input100"></span>
+				</div>
+
+        <div class="wrap-input100 input100-select">
+					<span class="label-input100">OS</span>
+					<div>
+						<select class="selection-2" id="os" name="os">
+              <option value="macos">macos</option>
+              <option value="no os">no os</option>
+              <option value="windows 10">windows 10</option>
+              <option value="mac os x">mac os x</option>
+              <option value="linux">linux</option>
+              <option value="android">android</option>
+              <option value="windows 10 s">windows 10 s</option>
+              <option value="chrome os">chrome os</option>
+              <option value="windows 7">windows 7</option>
+						</select>
+					</div>
+					<span class="focus-input100"></span>
+				</div>
+
+        <div class="wrap-input100 input100-select">
+					<span class="label-input100">CPU</span>
+					<div>
+						<select class="selection-2" id="cpu" name="cpu">
+              <option value="intel core i5">intel core i5</option>
+              <option value="intel core i7">intel core i7</option>
+              <option value="amd a9-series">amd a9-series</option>
+              <option value="intel core i3">intel core i3</option>
+              <option value="intel core m">intel core m</option>
+              <option value="intel atom">intel atom</option>
+              <option value="amd e-series">amd e-series</option>
+              <option value="amd a6-series">amd a6-series</option>
+              <option value="intel celeron dual core">intel celeron dual core</option>
+              <option value="amd ryzen">amd ryzen</option>
+              <option value="intel pentium quad core">intel pentium quad core</option>
+              <option value="amd fx">amd fx</option>
+              <option value="intel xeon e3-1505m">intel xeon e3-1505m</option>
+              <option value="amd a10-series">amd a10-series</option>
+              <option value="amd a8-series">amd a8-series</option>
+              <option value="amd a12-series">amd a12-series</option>
+              <option value="intel celeron quad core">intel celeron quad core</option>
+              <option value="intel xeon e3-1535m">intel xeon e3-1535m</option>
+              <option value="intel pentium dual core">intel pentium dual core</option>
+              <option value="amd a4-series">amd a4-series</option>
+              <option value="samsung cortex">samsung cortex</option>
+						</select>
+					</div>
+					<span class="focus-input100"></span>
+				</div>
+
+        <div class="wrap-input100 input100-select">
+					<span class="label-input100">GPU Brand</span>
+					<div>
+						<select class="selection-2" id="gpu" name="gpu">
+              <option value=intel>intel</option>
+              <option value=amd>amd</option>
+              <option value=nvidia>nvidia</option>
+              <option value=arm>arm</option>
+						</select>
+					</div>
+					<span class="focus-input100"></span>
+				</div>
+
+        <div class="wrap-input100 input100-select">
+					<span class="label-input100">Storage</span>
+					<div>
+						<select class="selection-2" id="storage" name="storage">
+              <option value="128gb">128gb</option>
+              <option value="256gb">256gb</option>
+              <option value="512gb">512gb</option>
+              <option value="500gb">500gb</option>
+              <option value="1tb">1tb</option>
+              <option value="32gb">32gb</option>
+              <option value="64gb">64gb</option>
+              <option value="2tb">2tb</option>
+              <option value="1.0tb">1.0tb</option>
+              <option value="16gb">16gb</option>
+              <option value="180gb">180gb</option>
+              <option value="240gb">240gb</option>
+              <option value="8gb">8gb</option>
+              <option value="508gb">508gb</option>
+						</select>
+					</div>
+					<span class="focus-input100"></span>
+				</div>
+
+        <div class="wrap-input100 input100-select">
+					<span class="label-input100">Screen</span>
+					<div>
+						<select class="selection-2" id="screen" name="screen">
+              <option value="ips panel retina display ">ips panel retina display </option>
+              <option value="regular">regular</option>
+              <option value="full hd ">full hd </option>
+              <option value="ips panel full hd ">ips panel full hd </option>
+              <option value="ips panel full hd touchscreen ">ips panel full hd touchscreen </option>
+              <option value="full hd touchscreen ">full hd touchscreen </option>
+              <option value="touchscreen quad hd+ ">touchscreen quad hd+ </option>
+              <option value="ips panel touchscreen ">ips panel touchscreen </option>
+              <option value="touchscreen ">touchscreen </option>
+              <option value="quad hd+ touchscreen ">quad hd+ touchscreen </option>
+              <option value="ips panel ">ips panel </option>
+              <option value="ips panel quad hd+ ">ips panel quad hd+ </option>
+              <option value="ips panel quad hd+ touchscreen ">ips panel quad hd+ touchscreen </option>
+              <option value="touchscreen full hd ">touchscreen full hd </option>
+              <option value="quad hd+ ">quad hd+ </option>
+						</select>
+					</div>
+					<span class="focus-input100"></span>
+				</div>
+
+        <div class="wrap-input100 validate-input" data-validate="Weight is required">
+					<span class="label-input100">Weight</span>
+					<input class="input100" type="text" id="weight" name="weight" placeholder="2.2">
+					<span class="focus-input100"></span>
+				</div>
+
+        <div class="wrap-input100 validate-input" data-validate="Inches is required">
+					<span class="label-input100">Screen Size</span>
+					<input class="input100" type="text" id="screen_size" name="screen_size" placeholder="14">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="container-contact100-form-btn">
+					<div class="wrap-contact100-form-btn">
+						<div class="contact100-form-bgbtn"></div>
+						<button id="predict" class="contact100-form-btn">
+							<span>
+								How much does it cost !!
+								<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+							</span>
+						</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+
+
+
+	<div id="dropDownSelect1"></div>
+
+<!--===============================================================================================-->
+	<script src="{{ url_for('static',filename='vendor/jquery/jquery-3.2.1.min.js') }}"></script>
+<!--===============================================================================================-->
+	<script src="{{ url_for('static',filename='vendor/animsition/js/animsition.min.js') }}"></script>
+<!--===============================================================================================-->
+	<script src="{{ url_for('static',filename='vendor/bootstrap/js/popper.js') }}"></script>
+	<script src="{{ url_for('static',filename='vendor/bootstrap/js/bootstrap.min.js') }}"></script>
+<!--===============================================================================================-->
+	<script src="{{ url_for('static',filename='vendor/select2/select2.min.js') }}"></script>
+	<script>
+		$(".selection-2").select2({
+			minimumResultsForSearch: 20,
+			dropdownParent: $('#dropDownSelect1')
+		});
+	</script>
+<!--===============================================================================================-->
+	<script src="{{ url_for('static',filename='vendor/daterangepicker/moment.min.js') }}"></script>
+	<script src="{{ url_for('static',filename='vendor/daterangepicker/daterangepicker.js') }}"></script>
+<!--===============================================================================================-->
+	<script src="{{ url_for('static',filename='vendor/countdowntime/countdowntime.js') }}"></script>
+<!--===============================================================================================-->
+	<script src="{{ url_for('static',filename='js/main.js') }}"></script>
+	<!-- include sweetAlert plugin -->
+	<script src="{{ url_for('static',filename='js/sweetalert2.all.js') }}"></script>
+	<script type="text/javascript">
+		$(function () {
+	        $("button#predict").click(function(e){
+	        	e.preventDefault();
+						swal('hello world')
+	        	/*Get for variabes*/
+	        	 var company = $("#company").val(), series = $("#series").val(), type = $("#type").val();
+	        	 var cpu = $("#cpu").val(), gpu_brand = $("#gpu_brand").val(), storage= $('#storage').val(), os= $('#os').val();
+             var weight = $("#weight").val(), screen_size = $("#screen_size").val(), screen_type = $("#screen").val();
+            /*create the JSON object*/
+	        	 var data = {"company":company, "series":series,
+                         "type":type, "cpu":cpu,
+                         "gpu_brand":gpu_brand, "storage":storage
+                         "screen":screen_type, "weight":weight
+                         "screen_size":screen_size, "os":os
+                       }
+							console.log(data)
+	        	/*send the ajax request*/
+        	 // $.ajax({
+        	 // 	type : "GET",
+						// dataType: 'json',
+        	 // 	url : window.location.href + 'hello',
+        	 // 	data : {'company': 'dell'},
+        	 // 	success : function(result){
+					 // 		alert(result)
+					 // 		console.log('success')
+        	 // 		var json_result = JSON.parse(result);
+        	 //  		var price = json_result['price'];
+        	 //  		swal('Estimated price is '+price+' DH', '','success')
+        	 //  	},
+           //    failure: function (response) {
+           //        swal(
+           //        "Internal Error",
+           //        "Oops, your note was not saved.", // had a missing comma
+           //        "error"
+           //        )
+           //    },
+        	 //  	error : function(){
+        	 //  		console.log("error")
+        	 //  	}
+        	 //  })
+
+						// $.ajax({
+						//     type:"GET",
+						//     dataType: "json",
+						//     data:data,
+						//     url: window.location.href + 'hello',
+						//     success: function(data){
+						//         buf1=data;
+						//         console.log(data);
+						//     }
+						// })
+	        })
+
+		});
+	</script>
+</body>
+</html>
